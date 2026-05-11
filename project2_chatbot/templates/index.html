@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartBot — AI-Powered Chatbot</title>
+    <meta name="description" content="AI-powered chatbot with NLP, deployed on AWS EC2 cloud">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="chat-app">
+        <header class="chat-header">
+            <div class="bot-info">
+                <div class="bot-avatar">🤖</div>
+                <div>
+                    <h1>SmartBot</h1>
+                    <span class="bot-status" id="botStatus">Online • Gemini 2.5 Flash</span>
+                </div>
+            </div>
+            <div class="header-actions">
+                <span class="cloud-badge" id="cloudBadge">☁️ <span id="cloudMode">Local</span></span>
+                <button class="btn-save" onclick="saveSession()" title="Save chat to cloud">💾 Save</button>
+            </div>
+        </header>
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot">
+                <div class="message-avatar">🤖</div>
+                <div class="message-content">
+                    <p>Hi! I'm <strong>SmartBot</strong> — your AI-powered assistant! 🧠</p>
+                    <p>I can help with tech, education, career, health, entertainment, and more. Try asking me something!</p>
+                    <div class="suggestions" id="suggestions"></div>
+                </div>
+            </div>
+        </div>
+        <div class="chat-input-area">
+            <div class="input-wrapper">
+                <button class="btn-mic" id="btnMic" onclick="toggleVoice()" title="Click to speak">🎤</button>
+                <input type="text" id="userInput" placeholder="Ask me anything..." autocomplete="off" onkeypress="if(event.key==='Enter')sendMessage()">
+                <button class="btn-send" onclick="sendMessage()">➤</button>
+            </div>
+            <div class="input-hint">Powered by TF-IDF NLP • Deployed on AWS EC2</div>
+        </div>
+    </div>
+    <script src="/static/app.js"></script>
+</body>
+</html>

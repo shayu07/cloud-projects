@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedGuard — Hospital Patient Registration System</title>
+    <meta name="description" content="Cloud-based hospital patient registration with automatic duplicate detection">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <span class="logo-icon">🏥</span>
+                <div>
+                    <h1>MedGuard</h1>
+                    <span class="logo-sub">Hospital Patient Registration</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="cloud-status" id="cloudStatus"><span class="status-dot"></span><span class="status-text">Checking...</span></div>
+                <div class="header-time" id="headerTime"></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Local Mode Warning -->
+        <div id="localWarningBanner" class="local-warning-banner hidden">
+            ⚠️ <strong>Cloud Sync Disabled:</strong> The hospital database is running in Local Mode. Add AWS credentials to the <code>.env</code> file to enable S3 backups.
+        </div>
+
+        <!-- Stats -->
+        <section class="stats-grid">
+            <div class="stat-card patients"><div class="stat-icon">👥</div><div class="stat-value" id="statTotal">0</div><div class="stat-label">Registered Patients</div></div>
+            <div class="stat-card alert"><div class="stat-icon">⚠️</div><div class="stat-value" id="statDuplicates">0</div><div class="stat-label">Duplicates Blocked</div></div>
+            <div class="stat-card success"><div class="stat-icon">✅</div><div class="stat-value" id="statAccuracy">100%</div><div class="stat-label">Database Accuracy</div></div>
+            <div class="stat-card cloud"><div class="stat-icon">☁️</div><div class="stat-value" id="statCloudSync">0</div><div class="stat-label">Synced to AWS</div></div>
+        </section>
+
+        <div class="content-grid">
+            <!-- Patient Registration Form -->
+            <section class="card form-card">
+                <div class="card-header">
+                    <h2>📋 Register New Patient</h2>
+                    <p>Fill in patient details — duplicates are auto-detected</p>
+                </div>
+                <form id="dataForm" class="data-form">
+                    <div class="form-row">
+                        <div class="form-group"><label>Patient Name *</label><input type="text" id="inputName" placeholder="e.g. Rahul Sharma" required></div>
+                        <div class="form-group"><label>Age</label><input type="text" id="inputAge" placeholder="e.g. 35"></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group"><label>Email *</label><input type="email" id="inputEmail" placeholder="e.g. rahul@gmail.com" required></div>
+                        <div class="form-group"><label>Phone (10 digits) *</label><input type="tel" id="inputPhone" pattern="[0-9]{10}" placeholder="e.g. 9876543210" title="Please enter exactly 10 digits" required></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Gender</label>
+                            <select id="inputGender"><option value="">Select</option><option>Male</option><option>Female</option><option>Other</option></select>
+                        </div>
+                        <div class="form-group">
+                            <label>Blood Group</label>
+                            <select id="inputBlood"><option value="">Select</option><option>A+</option><option>A-</option><option>B+</option><option>B-</option><option>AB+</option><option>AB-</option><option>O+</option><option>O-</option></select>
+                        </div>
+                    </div>
+                    <div class="form-group full"><label>Address</label><input type="text" id="inputAddress" placeholder="e.g. 45 MG Road, Pune"></div>
+                    <button type="button" id="btnCheck" class="btn btn-check" onclick="checkData()">🔍 Verify & Check Duplicates</button>
+                </form>
+                <div id="resultPanel" class="result-panel hidden"><div id="resultContent"></div><div id="resultActions" class="result-actions"></div></div>
+            </section>
+
+            <!-- Patient Records -->
+            <section class="card table-card">
+                <div class="card-header">
+                    <h2>🗂️ Patient Records <span id="tableBadge" class="table-badge">0</span></h2>
+                    <div class="card-actions">
+                        <input type="text" class="search-input" id="searchInput" placeholder="🔍 Search patients..." oninput="searchRecords()">
+                        <button class="btn btn-sm btn-cloud" onclick="triggerBackup()">☁️ S3 Backup</button>
+                    </div>
+                </div>
+                <div class="table-wrapper">
+                    <table><thead><tr><th>ID</th><th>Patient Name</th><th>Age</th><th>Gender</th><th>Blood</th><th>Phone</th><th>Status</th><th>Actions</th></tr></thead>
+                    <tbody id="recordsBody"><tr><td colspan="8" class="empty-state">No patients registered yet.</td></tr></tbody></table>
+                </div>
+            </section>
+        </div>
+
+        <!-- Activity Log -->
+        <section class="card log-card">
+            <div class="card-header"><h2>📝 Activity Log</h2><button class="btn btn-sm btn-outline" onclick="clearLog()">Clear</button></div>
+            <div class="log-entries" id="logEntries"><div class="log-entry info">🏥 MedGuard system initialized. Ready to register patients.</div></div>
+        </section>
+    </main>
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal hidden">
+        <div class="modal-content card">
+            <div class="card-header">
+                <h2>✏️ Edit Patient Details</h2>
+                <button class="btn btn-sm btn-outline" onclick="closeEditModal()">✖</button>
+            </div>
+            <form id="editForm" class="data-form">
+                <input type="hidden" id="editId">
+                <div class="form-row">
+                    <div class="form-group"><label>Patient Name *</label><input type="text" id="editName" required></div>
+                    <div class="form-group"><label>Age</label><input type="text" id="editAge"></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group"><label>Email *</label><input type="email" id="editEmail" required></div>
+                    <div class="form-group"><label>Phone (10 digits) *</label><input type="tel" id="editPhone" pattern="[0-9]{10}" required></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <select id="editGender"><option value="">Select</option><option>Male</option><option>Female</option><option>Other</option></select>
+                    </div>
+                    <div class="form-group">
+                        <label>Blood Group</label>
+                        <select id="editBlood"><option value="">Select</option><option>A+</option><option>A-</option><option>B+</option><option>B-</option><option>AB+</option><option>AB-</option><option>O+</option><option>O-</option></select>
+                    </div>
+                </div>
+                <div class="form-group full"><label>Address</label><input type="text" id="editAddress"></div>
+                <button type="button" class="btn btn-check" onclick="submitEdit()">💾 Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="toastContainer" class="toast-container"></div>
+    <script src="/static/app.js"></script>
+</body>
+</html>

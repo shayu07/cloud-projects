@@ -1,0 +1,102 @@
+{
+  "greetings": {
+    "patterns": ["hello", "hi", "hey", "good morning", "good afternoon", "good evening", "howdy", "greetings", "what's up", "sup", "hola"],
+    "responses": ["Hello! 👋 I'm your AI assistant. How can I help you today?", "Hi there! Ask me anything — I'm here to help! 😊", "Hey! Great to see you. What would you like to know?"]
+  },
+  "farewell": {
+    "patterns": ["bye", "goodbye", "see you", "take care", "thanks bye", "good night", "cya", "later"],
+    "responses": ["Goodbye! Have a wonderful day! 👋", "See you later! Come back anytime.", "Take care! Happy to help anytime. 😊"]
+  },
+  "about": {
+    "patterns": ["who are you", "what are you", "tell me about yourself", "your name", "what is this", "about bot", "introduce yourself"],
+    "responses": ["I'm an AI-powered chatbot built with Python, Flask, and NLP techniques like TF-IDF vectorization! I can answer questions about many topics including technology, education, health tips, and more. I'm deployed on AWS cloud for 24/7 availability! 🤖"]
+  },
+  "capabilities": {
+    "patterns": ["what can you do", "help me", "capabilities", "features", "how can you help", "what do you know"],
+    "responses": ["I can help you with:\n\n🔹 General Knowledge & Trivia\n🔹 Technology & Programming\n🔹 Education & College Info\n🔹 Health & Wellness Tips\n🔹 Math & Science Questions\n🔹 Daily Life & Productivity\n🔹 Fun Facts & Jokes\n\nJust ask me anything!"]
+  },
+  "python": {
+    "patterns": ["python", "what is python", "python programming", "learn python", "python language", "python tutorial"],
+    "responses": ["Python is one of the most popular programming languages! 🐍\n\n✅ Easy to learn with clean syntax\n✅ Used in AI, Web Dev, Data Science, Automation\n✅ Huge community & libraries (NumPy, Flask, TensorFlow)\n✅ Great for beginners and experts alike\n\nThis chatbot itself is built with Python + Flask!"]
+  },
+  "programming": {
+    "patterns": ["programming", "coding", "software development", "developer", "how to code", "learn coding", "best language"],
+    "responses": ["Popular programming languages to learn:\n\n🥇 Python — AI, Data Science, Web\n🥈 JavaScript — Web & Mobile Apps\n🥉 Java — Enterprise & Android\n4️⃣ C++ — Systems & Games\n5️⃣ Go — Cloud & Backend\n\nTip: Start with Python or JavaScript — they're beginner-friendly and in high demand!"]
+  },
+  "ai_ml": {
+    "patterns": ["artificial intelligence", "machine learning", "ai", "ml", "deep learning", "neural network", "what is ai"],
+    "responses": ["Artificial Intelligence (AI) is the simulation of human intelligence by machines! 🧠\n\n🔹 Machine Learning — Systems that learn from data\n🔹 Deep Learning — Neural networks with many layers\n🔹 NLP — Understanding human language (like me!)\n🔹 Computer Vision — Machines that 'see'\n\nPopular tools: TensorFlow, PyTorch, scikit-learn, OpenAI API"]
+  },
+  "web_development": {
+    "patterns": ["web development", "website", "html", "css", "javascript", "frontend", "backend", "full stack", "web design"],
+    "responses": ["Web Development involves building websites and web apps:\n\n🎨 Frontend: HTML + CSS + JavaScript\n⚙️ Backend: Python/Flask, Node.js, Django\n🗄️ Database: MySQL, PostgreSQL, MongoDB\n☁️ Deployment: AWS EC2, Heroku, Vercel\n\nThis chatbot uses Flask (backend) + vanilla JS (frontend)!"]
+  },
+  "database": {
+    "patterns": ["database", "sql", "mysql", "postgresql", "mongodb", "sqlite", "nosql", "data storage"],
+    "responses": ["Databases store and organize data:\n\n📊 SQL Databases (Relational):\n  - MySQL, PostgreSQL, SQLite\n  - Use tables with rows & columns\n\n📦 NoSQL Databases:\n  - MongoDB, Redis, DynamoDB\n  - Flexible schema, great for scaling\n\nChoose SQL for structured data, NoSQL for flexibility!"]
+  },
+  "college": {
+    "patterns": ["college", "university", "admission", "course", "branch", "department", "btech", "mtech", "engineering", "education"],
+    "responses": ["Common engineering branches:\n\n🎓 CSE — Computer Science & Engineering\n🎓 IT — Information Technology\n🎓 ECE — Electronics & Communication\n🎓 ME — Mechanical Engineering\n🎓 CE — Civil Engineering\n🎓 AI/ML — Artificial Intelligence\n\nCSE & IT are the most in-demand right now with great placement opportunities!"]
+  },
+  "career": {
+    "patterns": ["career", "job", "placement", "salary", "interview", "resume", "hire", "employment", "work"],
+    "responses": ["Top tech careers in 2026:\n\n💼 Software Developer — ₹6-25 LPA\n💼 Data Scientist — ₹8-30 LPA\n💼 Cloud Engineer — ₹7-20 LPA\n💼 AI/ML Engineer — ₹10-35 LPA\n💼 Cybersecurity Analyst — ₹6-18 LPA\n\nTips: Build projects, contribute to open source, and practice DSA on LeetCode!"]
+  },
+  "health": {
+    "patterns": ["health", "fitness", "exercise", "diet", "nutrition", "wellness", "healthy", "sleep", "stress"],
+    "responses": ["Daily health tips for students:\n\n💪 Exercise 30 mins daily\n🥗 Eat balanced meals with fruits & veggies\n💧 Drink 8 glasses of water\n😴 Sleep 7-8 hours\n🧘 Practice mindfulness or meditation\n📵 Take screen breaks every 30 mins\n\nHealthy body = Healthy mind = Better coding! 🧠"]
+  },
+  "weather": {
+    "patterns": ["weather", "temperature", "rain", "sunny", "forecast", "climate", "hot", "cold"],
+    "responses": ["I can't check live weather, but here are some tips:\n\n☀️ Check weather.gov or AccuWeather for forecasts\n📱 Use weather apps on your phone\n🌧️ Always carry an umbrella during monsoon season!\n\nFun fact: You could build your own weather app using Python + OpenWeatherMap API! 🌤️"]
+  },
+  "math": {
+    "patterns": ["math", "mathematics", "calculate", "algebra", "calculus", "geometry", "statistics", "formula"],
+    "responses": ["Math is the foundation of computer science! 📐\n\nKey areas for CS students:\n🔢 Discrete Mathematics — Logic, Sets, Graphs\n📊 Statistics & Probability — ML, Data Science\n📈 Linear Algebra — AI, Graphics, Neural Networks\n∫ Calculus — Optimization, Signal Processing\n\nTip: Khan Academy & 3Blue1Brown are great free resources!"]
+  },
+  "science": {
+    "patterns": ["science", "physics", "chemistry", "biology", "research", "experiment", "scientific"],
+    "responses": ["Science is all about understanding the world around us! 🔬\n\n⚛️ Physics — Laws governing the universe\n🧪 Chemistry — Matter and its interactions\n🧬 Biology — Life and living organisms\n💻 Computer Science — The science of computation\n\nFun fact: The internet you're using was invented at CERN — a physics lab!"]
+  },
+  "time": {
+    "patterns": ["time", "what time", "date", "today", "day", "current time"],
+    "responses": ["I don't have a real-time clock, but your browser should show the current time! ⏰\n\nFun fact: You could build a world clock app using Python's datetime library and the pytz module for timezone conversions!"]
+  },
+  "motivation": {
+    "patterns": ["motivate", "motivation", "inspire", "inspiration", "encourage", "feeling low", "sad", "depressed", "stressed"],
+    "responses": ["Here's some motivation for you! 💪\n\n🌟 'The only way to do great work is to love what you do.' — Steve Jobs\n🌟 'Code is like humor. When you have to explain it, it's bad.' — Cory House\n🌟 'First, solve the problem. Then, write the code.' — John Johnson\n\nRemember: Every expert was once a beginner. Keep going! 🚀"]
+  },
+  "joke": {
+    "patterns": ["joke", "funny", "make me laugh", "humor", "tell joke", "comedy"],
+    "responses": ["Why did the developer go broke? Because he used up all his cache! 😂", "There are 10 types of people: those who understand binary and those who don't! 🤓", "Why do programmers prefer dark mode? Because light attracts bugs! 🪲", "A SQL query walks into a bar, sees two tables and asks... 'Can I JOIN you?' 😄"]
+  },
+  "thanks": {
+    "patterns": ["thank", "thanks", "thank you", "appreciate", "helpful", "great help", "awesome"],
+    "responses": ["You're welcome! Glad I could help! 😊", "Anytime! Feel free to ask more questions.", "Happy to assist! That's what I'm here for. 🎉"]
+  },
+  "music": {
+    "patterns": ["music", "song", "singer", "band", "playlist", "listen", "spotify"],
+    "responses": ["Music is great for productivity! 🎵\n\n🎧 For Coding: Lo-fi beats, ambient electronic\n🎧 For Focus: Classical music, nature sounds\n🎧 For Energy: Pop, rock, EDM\n\nTip: Try the 'Coding Music' playlists on Spotify or YouTube!"]
+  },
+  "movies": {
+    "patterns": ["movie", "film", "watch", "netflix", "series", "show", "entertainment", "anime"],
+    "responses": ["Great tech movies to watch:\n\n🎬 The Social Network — Facebook's origin story\n🎬 The Imitation Game — Alan Turing & cryptography\n🎬 Iron Man — Tech genius superhero\n🎬 Ex Machina — AI and consciousness\n🎬 Silicon Valley (Series) — Startup comedy\n\nAnime fan? Try Steins;Gate for time travel + tech!"]
+  },
+  "sports": {
+    "patterns": ["sports", "cricket", "football", "soccer", "basketball", "tennis", "game", "ipl", "worldcup"],
+    "responses": ["Sports keep mind and body sharp! ⚽\n\n🏏 Cricket — Most popular in India\n⚽ Football — World's most watched sport\n🏀 Basketball — Growing fast globally\n🎾 Tennis — Great individual sport\n\nFun fact: Sports analytics is a booming field combining data science + sports!"]
+  },
+  "books": {
+    "patterns": ["book", "reading", "read", "novel", "literature", "recommend book", "best book"],
+    "responses": ["Must-read books for tech students:\n\n📚 Clean Code — Robert C. Martin\n📚 The Pragmatic Programmer — Hunt & Thomas\n📚 Cracking the Coding Interview — Gayle McDowell\n📚 Atomic Habits — James Clear (self-improvement)\n📚 Sapiens — Yuval Noah Harari (perspective)\n\nReading 30 mins daily transforms your thinking! 📖"]
+  },
+  "food": {
+    "patterns": ["food", "recipe", "cook", "restaurant", "hungry", "eat", "meal", "breakfast", "lunch", "dinner", "snack"],
+    "responses": ["Quick & healthy student meals:\n\n🍳 Omelette + toast (5 mins)\n🥗 Vegetable salad with chickpeas (10 mins)\n🍜 Instant noodles + egg + veggies (8 mins)\n🥪 Peanut butter sandwich + banana (3 mins)\n🍚 Dal rice — classic comfort food!\n\nRemember: Brain food = good code! 🧠"]
+  },
+  "travel": {
+    "patterns": ["travel", "trip", "vacation", "visit", "tourism", "place", "destination", "explore"],
+    "responses": ["Top tech hubs to visit in India:\n\n🏙️ Bangalore — Silicon Valley of India\n🏙️ Hyderabad — HITEC City, growing fast\n🏙️ Pune — IT parks + great weather\n🏙️ Chennai — Strong IT sector\n🏙️ Gurgaon/Noida — NCR tech corridor\n\nPro tip: Attend tech meetups when you travel — great for networking!"]
+  }
+}
